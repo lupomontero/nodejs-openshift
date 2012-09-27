@@ -2,6 +2,7 @@
   "name": "test",
   "version": "0.0.0",
   "dependencies": {
-    "express": "3.0.0rc4"
+    "express": "3.0.0rc4",
+    "hbs": "1.0.5"
   }
 }
