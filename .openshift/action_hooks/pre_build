@@ -4,4 +4,5 @@
 # before the build step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
 
+cd $OPENSHIFT_REPO_DIR
 HOME=$OPENSHIFT_DATA_DIR npm install -d
