@@ -4,13 +4,19 @@
 # before the build step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
 
-# Use `nave` to make sure we use the right `node` version.
-HOME=$OPENSHIFT_DATA_DIR $OPENSHIFT_DATA_DIR/nave/nave.sh use 0.8.10
+NAVE=$OPENSHIFT_DATA_DIR/nave/nave.sh
+
+# If `nave` doesn't exist we get it from GitHub.
+if [ ! -f $NAVE ]; then
+  echo 'Downloading isaacs/nave from GitHub...'
+  git clone git://github.com/isaacs/nave.git $OPENSHIFT_DATA_DIR/nave
+fi
 
 # We go into the repo dir where the app lives so we can run `npm install` in
 # there.
 cd $OPENSHIFT_REPO_DIR
 
+# Use `nave` to make sure we use the right `node` version.
 # We set the `$HOME` environment variable to data dir as this is the only place
 # where we can write and `npm` will need to do so in home.
-HOME=$OPENSHIFT_DATA_DIR npm install -d
+HOME=$OPENSHIFT_DATA_DIR $NAVE use 0.8.10 npm install -d
