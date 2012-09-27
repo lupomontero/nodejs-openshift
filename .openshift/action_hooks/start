@@ -2,5 +2,4 @@
 # The logic to start up your application should be put in this
 # script. The application will work only if it binds to
 # $OPENSHIFT_INTERNAL_IP:8080
-nvm use 0.8
 nohup node $OPENSHIFT_REPO_DIR/app.js > $OPENSHIFT_LOG_DIR/node.log 2>&1 &
