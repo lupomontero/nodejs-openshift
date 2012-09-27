@@ -7,7 +7,13 @@ var
   app = express();
 
 app.configure(function () {
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'hbs');
   app.use(express.static(__dirname + '/public'));
+});
+
+app.get('/', function (req, res, next) {
+  res.render('index', { title: 'A test app', node_version: process.version });
 });
 
 app.listen(port, ip);
