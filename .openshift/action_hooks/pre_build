@@ -1,8 +1,16 @@
 #!/bin/bash
-# This is a simple script and will be executed on your CI system if 
+# This is a simple script and will be executed on your CI system if
 # available.  Otherwise it will execute while your application is stopped
 # before the build step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
 
+# Use `nave` to make sure we use the right `node` version.
+$OPENSHIFT_DATA_DIR/nave/nave.sh use 0.8.10
+
+# We go into the repo dir where the app lives so we can run `npm install` in
+# there.
 cd $OPENSHIFT_REPO_DIR
+
+# We set the `$HOME` environment variable to data dir as this is the only place
+# where we can write and `npm` will need to do so in home.
 HOME=$OPENSHIFT_DATA_DIR npm install -d
