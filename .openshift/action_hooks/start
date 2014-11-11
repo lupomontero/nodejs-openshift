@@ -3,6 +3,6 @@
 # script. The application will work only if it binds to
 # $OPENSHIFT_INTERNAL_IP:8080
 
-HOME=$OPENSHIFT_DATA_DIR nohup $OPENSHIFT_DATA_DIR/nave/nave.sh use 0.8.10 \
+HOME=$OPENSHIFT_DATA_DIR nohup $OPENSHIFT_DATA_DIR/nave/nave.sh use 0.10.33 \
   $OPENSHIFT_REPO_DIR'app.js' $OPENSHIFT_INTERNAL_PORT $OPENSHIFT_INTERNAL_IP \
   > $OPENSHIFT_DIY_LOG_DIR/app.log 2>&1 &
